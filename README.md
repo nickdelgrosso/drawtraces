@@ -5,7 +5,7 @@ Plots traces of cell fluoescences from my study.
 
 Makes something like this:
 
-![cell_plot](./example_data/draw_traces/TP1.png)
+![cell_plot](example_data/draw_traces/TP1.png)
 
 ## Installation
 
