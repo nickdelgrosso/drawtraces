@@ -1,7 +1,11 @@
 import matplotlib.pyplot as plt
 import pandas as pd
+import numpy as np
+import random
 
 def main():
+    np.random.seed(4)
+    random.seed = 4
 
     # load csv as data frame
     df = pd.read_csv('../example_data/draw_traces/top5_correlated.csv')
@@ -88,7 +92,7 @@ def main():
     plt.ylabel('ΔF/F')
     plt.xlabel('# of frames')
 
-    plt.show()
+    #plt.show()
     fig_TP1.savefig('../example_data/draw_traces/TP1.svg', format = 'svg')
 
 
@@ -119,7 +123,7 @@ def main():
     axTP2_cell5.set_ylim(0.2,1.2)
     axTP2_cell5.axis('off')
 
-    plt.show()
+    #plt.show()
     fig_TP2.savefig('../example_data/draw_traces/TP2.svg', format = 'svg')
 
     # Plot all cells for TP3
@@ -147,7 +151,7 @@ def main():
     axTP3_cell5.set_ylim(0.2,1.2)
     axTP3_cell5.axis('off')
 
-    plt.show()
+    #plt.show()
     fig_TP3.savefig('../example_data/draw_traces/TP3.svg', format = 'svg')
 
     # Plot all cells for TP4
@@ -175,7 +179,7 @@ def main():
     axTP4_cell5.set_ylim(0.2,1.2)
     axTP4_cell5.axis('off')
 
-    plt.show()
+    #plt.show()
     fig_TP4.savefig('../example_data/draw_traces/TP4.svg', format = 'svg')
 
 
