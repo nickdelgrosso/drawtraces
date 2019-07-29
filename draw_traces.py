@@ -4,7 +4,7 @@ import pandas as pd
 
 
 # load csv as data frame
-df = pd.read_csv('/Users/blumenstock/Documents/161results/top5_correlated.csv')
+df = pd.read_csv('./top5_correlated.csv')
 
 # extract time (t) and fluorescence data for each ROI (cell 1-5)
 t = df.ix[:,'y0000']
@@ -88,7 +88,7 @@ axTP1_cell5.set_yticks([])
 plt.ylabel('ΔF/F')
 plt.xlabel('# of frames')
 
-#plt.show()
+plt.show()
 fig_TP1.savefig('TP1.svg', format = 'svg')
 
 
@@ -119,7 +119,7 @@ axTP2_cell5.plot(t_TP2,cell5_TP2, linewidth = 0.25, color = 'royalblue')
 axTP2_cell5.set_ylim(0.2,1.2)
 axTP2_cell5.axis('off')
 
-#plt.show()
+plt.show()
 fig_TP2.savefig('TP2.svg', format = 'svg')
 
 # Plot all cells for TP3
@@ -147,7 +147,7 @@ axTP3_cell5.plot(t_TP3,cell5_TP3, linewidth = 0.25, color = 'royalblue')
 axTP3_cell5.set_ylim(0.2,1.2)
 axTP3_cell5.axis('off')
 
-#plt.show()
+plt.show()
 fig_TP3.savefig('TP3.svg', format = 'svg')
 
 # Plot all cells for TP4
@@ -175,5 +175,5 @@ axTP4_cell5.plot(t_TP4,cell5_TP4, linewidth = 0.25, color = 'royalblue')
 axTP4_cell5.set_ylim(0.2,1.2)
 axTP4_cell5.axis('off')
 
-#plt.show()
+plt.show()
 fig_TP4.savefig('TP4.svg', format = 'svg')
