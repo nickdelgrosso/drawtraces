@@ -20,12 +20,6 @@ def main():
     cell4 = df.ix[:,'x0003']
     cell5 = df.ix[:,'x0004']
 
-    #extract time (t) for 4 timepoints (TP)
-    t_TPs = []
-
-    for timepoint in range(ntimepoints):
-        t_TP = t.ix[timepoint*frames_recorded : (timepoint+1)*frames_recorded - 1]
-        t_TPs.append(t_TP)
 
     # extract data for each time point from all ROIs
     cells = [cell1, cell2, cell3, cell4, cell5]
@@ -41,9 +35,10 @@ def main():
         subplots = [511, 512, 513, 514, 515]
         visibilities = ['off', 'off', 'off', 'off', 'on']
 
+        t_TP = t.ix[timepoint * frames_recorded: (timepoint + 1) * frames_recorded - 1]
         for cell_TP, color, y_lim, subplot, visibility in zip(cells_TP, colors, y_lims, subplots, visibilities):
             ax = fig.add_subplot(subplot)
-            ax.plot(t_TPs[timepoint], cell_TP, linewidth=0.25, color=color)
+            ax.plot(t_TP, cell_TP, linewidth=0.25, color=color)
             ax.set_ylim(y_lim[0], y_lim[1])
             ax.axis(visibility)
 
