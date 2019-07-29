@@ -62,45 +62,32 @@ def main():
 
 
     for timepoint in range(ntimepoints):
-        fig_TP1 = plt.figure()
-        axTP1 = fig_TP1.add_subplot(511)
-        axTP1.plot(t_TPs[timepoint], cell1_TPs[timepoint], linewidth = 0.25, color = 'firebrick')
-        axTP1.set_ylim(3.8,4.8)
-        axTP1.axis('off')
+        fig = plt.figure()
+        colors = ['firebrick', 'sandybrown', 'darkkhaki', 'seagreen', 'royalblue']
+        y_lims = [(3.8, 4.8), (3.3, 4.3), (2, 3), (0.8, 1.8), (-0.2, 0.8)]
+        cells = [cell1_TPs, cell2_TPs, cell3_TPs, cell4_TPs, cell5_TPs]
+        subplots = [511, 512, 513, 514, 515]
+        visibilities = ['off', 'off', 'off', 'off', 'on']
 
-        axTP1 = fig_TP1.add_subplot(512)
-        axTP1.plot(t_TPs[timepoint],cell2_TPs[timepoint], linewidth = 0.25, color = 'sandybrown')
-        axTP1.set_ylim(3.3,4.3)
-        axTP1.axis('off')
-
-        axTP1 = fig_TP1.add_subplot(513)
-        axTP1.plot(t_TPs[timepoint],cell3_TPs[timepoint], linewidth = 0.25, color = 'darkkhaki')
-        axTP1.set_ylim(2,3)
-        axTP1.axis('off')
-
-        axTP1 = fig_TP1.add_subplot(514)
-        axTP1.plot(t_TPs[timepoint],cell4_TPs[timepoint], linewidth = 0.25, color = 'seagreen')
-        axTP1.set_ylim(0.8,1.8)
-        axTP1.axis('off')
-
-        axTP1 = fig_TP1.add_subplot(515)
-        axTP1.plot(t_TPs[timepoint],cell5_TPs[timepoint], linewidth = 0.25, color = 'royalblue')
-        axTP1.set_ylim(-0.2,0.8)
-        #axTP1_cell5.axis('off')
+        for color, y_lim, cell, subplot, visibility in zip(colors, y_lims, cells, subplots, visibilities):
+            ax = fig.add_subplot(subplot)
+            ax.plot(t_TPs[timepoint], cell[timepoint], linewidth=0.25, color=color)
+            ax.set_ylim(y_lim[0], y_lim[1])
+            ax.axis(visibility)
 
 
-        axTP1.spines['right'].set_visible(False)
-        axTP1.spines['top'].set_visible(False)
-        axTP1.spines['bottom'].set_position(('outward',10))
-        axTP1.set_yticks([])
+        ax.spines['right'].set_visible(False)
+        ax.spines['top'].set_visible(False)
+        ax.spines['bottom'].set_position(('outward',10))
+        ax.set_yticks([])
 
         #Adjust spacing between subplots
-        plt.ylabel('ΔF/F')
-        plt.xlabel('# of frames')
+        ax.set_ylabel('ΔF/F')
+        ax.set_xlabel('# of frames')
 
         #plt.show()
-        fig_TP1.savefig('./example_data/draw_traces/TP{}.svg'.format(timepoint+1), format = 'svg')
-        fig_TP1.savefig('./example_data/draw_traces/TP{}.png'.format(timepoint+1), format = 'png')
+        fig.savefig('./example_data/draw_traces/TP{}.svg'.format(timepoint+1), format = 'svg')
+        fig.savefig('./example_data/draw_traces/TP{}.png'.format(timepoint+1), format = 'png')
 
 
 if __name__ == '__main__':
