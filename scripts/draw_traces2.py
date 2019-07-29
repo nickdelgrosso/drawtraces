@@ -4,8 +4,8 @@ import pandas as pd
 
 
 # load csv as data frame
-df_geco = pd.read_csv('./jRGECO.csv')
-df_gcamp = pd.read_csv('./GCamP7.csv')
+df_geco = pd.read_csv('./example_data/draw_traces2/jRGECO.csv')
+df_gcamp = pd.read_csv('./example_data/draw_traces2/GCamP7.csv')
 #df_gcamp
 
 # extract time (t) and fluorescence data for each ROI
@@ -35,7 +35,7 @@ plt.ylabel('ΔF/F')
 plt.xlabel('# of frames')
 
 #plt.show()
-fig.savefig('2059_GCamP_GECO_example_traces.svg', format = 'svg')
+fig.savefig('./example_data/draw_traces2/2059_GCamP_GECO_example_traces.svg', format = 'svg')
 
 
 plt.show()
