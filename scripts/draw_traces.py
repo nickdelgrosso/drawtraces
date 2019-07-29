@@ -8,7 +8,7 @@ def main():
     random.seed = 4
 
     # load csv as data frame
-    df = pd.read_csv('../example_data/draw_traces/top5_correlated.csv')
+    df = pd.read_csv('./example_data/draw_traces/top5_correlated.csv')
 
     # extract time (t) and fluorescence data for each ROI (cell 1-5)
     t = df.ix[:,'y0000']
@@ -93,8 +93,8 @@ def main():
     plt.xlabel('# of frames')
 
     #plt.show()
-    fig_TP1.savefig('../example_data/draw_traces/TP1.svg', format = 'svg')
-    fig_TP1.savefig('../example_data/draw_traces/TP1.png', format = 'png')
+    fig_TP1.savefig('./example_data/draw_traces/TP1.svg', format = 'svg')
+    fig_TP1.savefig('./example_data/draw_traces/TP1.png', format = 'png')
 
 
 
@@ -125,7 +125,7 @@ def main():
     axTP2_cell5.axis('off')
 
     #plt.show()
-    fig_TP2.savefig('../example_data/draw_traces/TP2.svg', format = 'svg')
+    fig_TP2.savefig('./example_data/draw_traces/TP2.svg', format = 'svg')
 
     # Plot all cells for TP3
 
@@ -153,7 +153,7 @@ def main():
     axTP3_cell5.axis('off')
 
     #plt.show()
-    fig_TP3.savefig('../example_data/draw_traces/TP3.svg', format = 'svg')
+    fig_TP3.savefig('./example_data/draw_traces/TP3.svg', format = 'svg')
 
     # Plot all cells for TP4
 
@@ -181,7 +181,7 @@ def main():
     axTP4_cell5.axis('off')
 
     #plt.show()
-    fig_TP4.savefig('../example_data/draw_traces/TP4.svg', format = 'svg')
+    fig_TP4.savefig('./example_data/draw_traces/TP4.svg', format = 'svg')
 
 
 if __name__ == '__main__':
