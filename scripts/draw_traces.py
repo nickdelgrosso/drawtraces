@@ -94,6 +94,7 @@ def main():
 
     #plt.show()
     fig_TP1.savefig('../example_data/draw_traces/TP1.svg', format = 'svg')
+    fig_TP1.savefig('../example_data/draw_traces/TP1.png', format = 'png')
 
 
 
