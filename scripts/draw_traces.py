@@ -23,14 +23,14 @@ def main():
     #extract time (t) for 4 timepoints (TP)
     t_TPs = []
     for timepoint in range(ntimepoints):
-        t_TP = t.ix[timepoint*frames_recorded : (timepoint+1)*frames_recorded]
+        t_TP = t.ix[timepoint*frames_recorded : (timepoint+1)*frames_recorded - 1]
         t_TPs.append(t_TP)
 
     # extract data for each time point from ROI 0000 (cell1)
-    cell1_TP1 = cell1.ix[0:6079]
-    cell1_TP2 = cell1.ix[6080:12159]
-    cell1_TP3 = cell1.ix[12160:18239]
-    cell1_TP4 = cell1.ix[18240:24319]
+    cell1_TPs = []
+    for timepoint in range(ntimepoints):
+        cell1_TP = cell1.ix[timepoint*frames_recorded : (timepoint+1)*frames_recorded -1]
+        cell1_TPs.append(cell1_TP)
 
 
     # extract data for each time point from ROI 0001 (cell2)
@@ -68,7 +68,7 @@ def main():
     axTP1_cell5 = fig_TP1.add_subplot(515)
 
 
-    axTP1_cell1.plot(t_TPs[0], cell1_TP1, linewidth = 0.25, color = 'firebrick')
+    axTP1_cell1.plot(t_TPs[0], cell1_TPs[0], linewidth = 0.25, color = 'firebrick')
     axTP1_cell1.set_ylim(3.8,4.8)
     axTP1_cell1.axis('off')
     axTP1_cell2.plot(t_TPs[0],cell2_TP1, linewidth = 0.25, color = 'sandybrown')
@@ -110,7 +110,7 @@ def main():
     axTP2_cell4 = fig_TP2.add_subplot(514)
     axTP2_cell5 = fig_TP2.add_subplot(515)
 
-    axTP2_cell1.plot(t_TPs[1],cell1_TP2, linewidth = 0.25, color = 'firebrick')
+    axTP2_cell1.plot(t_TPs[1],cell1_TPs[1], linewidth = 0.25, color = 'firebrick')
     axTP2_cell1.set_ylim(4,5)
     axTP2_cell1.axis('off')
     axTP2_cell2.plot(t_TPs[1],cell2_TP2, linewidth = 0.25, color = 'sandybrown')
@@ -138,7 +138,7 @@ def main():
     axTP3_cell4 = fig_TP3.add_subplot(514)
     axTP3_cell5 = fig_TP3.add_subplot(515)
 
-    axTP3_cell1.plot(t_TPs[2],cell1_TP3, linewidth = 0.25, color = 'firebrick')
+    axTP3_cell1.plot(t_TPs[2],cell1_TPs[2], linewidth = 0.25, color = 'firebrick')
     axTP3_cell1.set_ylim(4,5)
     axTP3_cell1.axis('off')
     axTP3_cell2.plot(t_TPs[2],cell2_TP3, linewidth = 0.25, color = 'sandybrown')
@@ -166,7 +166,7 @@ def main():
     axTP4_cell4 = fig_TP4.add_subplot(514)
     axTP4_cell5 = fig_TP4.add_subplot(515)
 
-    axTP4_cell1.plot(t_TPs[3],cell1_TP4, linewidth = 0.25, color = 'firebrick')
+    axTP4_cell1.plot(t_TPs[3],cell1_TPs[3], linewidth = 0.25, color = 'firebrick')
     axTP4_cell1.set_ylim(4,5)
     axTP4_cell1.axis('off')
     axTP4_cell2.plot(t_TPs[3],cell2_TP4, linewidth = 0.25, color = 'sandybrown')
