@@ -1,7 +1,6 @@
 import matplotlib.pyplot as plt
 import pandas as pd
-import numpy as np
-import random
+
 
 def main():
     # load csv as data frame
@@ -13,19 +12,15 @@ def main():
     ntimepoints = int(len(df) // frames_recorded)
 
     # extract time (t) and fluorescence data for each ROI (cell 1-5)
-    t = df.ix[:,'y0000']
-    cell1 = df.ix[:,'x0000']
-    cell2 = df.ix[:,'x0001']
-    cell3 = df.ix[:,'x0002']
-    cell4 = df.ix[:,'x0003']
-    cell5 = df.ix[:,'x0004']
 
+    t = df.ix[:,'y0000']
 
     # extract data for each time point from all ROIs
-    cells = [cell1, cell2, cell3, cell4, cell5]
+    cell_names = ['x0000', 'x0001', 'x0002', 'x0003', 'x0004']
     for timepoint in range(ntimepoints):
         cells_TP = []
-        for cell in cells:
+        for cell_name in cell_names:
+            cell = df.ix[:, cell_name]
             cell_TP = cell.ix[timepoint*frames_recorded : (timepoint+1)*frames_recorded -1]
             cells_TP.append(cell_TP)
 
