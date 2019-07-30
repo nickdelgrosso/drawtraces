@@ -1,14 +1,15 @@
 import matplotlib.pyplot as plt
 import pandas as pd
-from PyFunctional import seq
 
 
-seq(pd.read_csv('./data/draw_traces/top5_correlated.csv',
-                 index_col='y0000',
-                 usecols=['x0000', 'x0001', 'x0002', 'x0003', 'x0004'],
+
+dfs = pd.read_csv('./data/draw_traces/top5_correlated.csv',
+                 index_col=0,
+                 usecols=lambda s: s.startswith('x'),
                  chunksize=6080)
-     )
-    .map(tp.plot(subplots=True, xlabel='dfa', ylabel='dfa'))
-    .map(plt.savefig)
-)
+
+for idx, df in enumerate(dfs):
+    df.plot(subplots=True, legend=False)
+    for fmt in ['png', 'svg']:
+        plt.savefig('./data/draw_traces/TP{}.{}'.format(idx, fmt))
 
