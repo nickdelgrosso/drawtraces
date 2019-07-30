@@ -22,17 +22,18 @@ for tp in [0, 6080, 12160, 18240]:
     t_TPs.append(t_TP)
 
 # extract data for each time point from ROI 0000 (cells[0])
-cell1_TP1 = cells[0].ix[0:6079]
-cell1_TP2 = cells[0].ix[6080:12159]
-cell1_TP3 = cells[0].ix[12160:18239]
-cell1_TP4 = cells[0].ix[18240:24319]
+cell1_TPs = []
+for tp in [0, 6080, 12160, 18240]:
+    cell1_TP = cells[0].ix[tp:tp+6079]
+    cell1_TPs.append(cell1_TP)
 
 
 # extract data for each time point from ROI 0001 (cells[1])
-cell2_TP1 = cells[1].ix[0:6079]
-cell2_TP2 = cells[1].ix[6080:12159]
-cell2_TP3 = cells[1].ix[12160:18239]
-cell2_TP4 = cells[1].ix[18240:24319]
+cell2_TPs = []
+for tp in [0, 6080, 12160, 18240]:
+    cell2_TP = cells[1].ix[tp:tp+6079]
+    cell2_TPs.append(cell2_TP)
+
 
 # extract data for each time point from ROI 0002 (cells[2])
 cell3_TP1 = cells[2].ix[0:6079]
@@ -63,8 +64,8 @@ axTP1_cell4 = fig_TP1.add_subplot(514)
 axTP1_cell5 = fig_TP1.add_subplot(515)
 
 
-axTP1_cell1.plot(t_TPs[0], cell1_TP1, linewidth = 0.25)
-axTP1_cell2.plot(t_TPs[0],cell2_TP1, linewidth = 0.25)
+axTP1_cell1.plot(t_TPs[0], cell1_TPs[0], linewidth = 0.25)
+axTP1_cell2.plot(t_TPs[0], cell2_TPs[0], linewidth = 0.25)
 axTP1_cell3.plot(t_TPs[0],cell3_TP1, linewidth = 0.25)
 axTP1_cell4.plot(t_TPs[0],cell4_TP1, linewidth = 0.25)
 axTP1_cell5.plot(t_TPs[0],cell5_TP1, linewidth = 0.25)
