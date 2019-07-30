@@ -8,6 +8,7 @@ dfs = pd.read_csv('./data/draw_traces/top5_correlated.csv',
                  usecols=lambda s: s.startswith('x'),
                  chunksize=6080)
 
+
 for idx, df in enumerate(dfs):
     df.plot(subplots=True, legend=False)
     for fmt in ['png', 'svg']:
