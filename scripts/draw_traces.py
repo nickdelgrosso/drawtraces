@@ -34,25 +34,13 @@ for tp in [0, 6080, 12160, 18240]:
 
 # Plot all cells for TP1
 
-fig_TP1 = plt.figure()
-axTP1_cell1 = fig_TP1.add_subplot(511)
-axTP1_cell2 = fig_TP1.add_subplot(512)
-axTP1_cell3 = fig_TP1.add_subplot(513)
-axTP1_cell4 = fig_TP1.add_subplot(514)
-axTP1_cell5 = fig_TP1.add_subplot(515)
-
-
-axTP1_cell1.plot(t_TPs[0], cells_TPs[0][0], linewidth = 0.25)
-axTP1_cell2.plot(t_TPs[0], cells_TPs[0][1], linewidth = 0.25)
-axTP1_cell3.plot(t_TPs[0], cells_TPs[0][2], linewidth = 0.25)
-axTP1_cell4.plot(t_TPs[0], cells_TPs[0][3], linewidth = 0.25)
-axTP1_cell5.plot(t_TPs[0], cells_TPs[0][4], linewidth = 0.25)
-
+fig, axes = plt.subplots(nrows=5)
+for ax, cell_TP in zip(axes, cells_TPs[0]):
+    ax.plot(t_TPs[0], cell_TP, linewidth = 0.25)
 
 #Adjust spacing between subplots
 plt.ylabel('ΔF/F')
 plt.xlabel('# of frames')
-
-fig_TP1.savefig('./data/draw_traces/TP1.png', format = 'png')
+fig.savefig('./data/draw_traces/TP1.png', format = 'png')
 
 
