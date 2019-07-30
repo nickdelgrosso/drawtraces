@@ -9,6 +9,8 @@ dfs = pd.read_csv('./data/draw_traces/top5_correlated.csv',
                  chunksize=6080)
 
 
+# Suggestion: insert pd.melt() here.
+
 for idx, df in enumerate(dfs):
     df.plot(subplots=True, legend=False)
     for fmt in ['png', 'svg']:
