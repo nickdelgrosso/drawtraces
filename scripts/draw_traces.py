@@ -16,31 +16,17 @@ for cell_name in cell_names:
     cells.append(cell)
 
 #extract time (t) for 4 timepoints (TP)
-t_TPs = []
-for tp in [0, 6080, 12160, 18240]:
+for idx, tp in enumerate([0, 6080, 12160, 18240]):
     t_TP = t.ix[tp:tp+6079]
-    t_TPs.append(t_TP)
 
-# extract data for each time point from ROI 0000 (cells[0])
-cells_TPs = []
-cell1_TPs = []
-for tp in [0, 6080, 12160, 18240]:
-    cells_TP = []
-    for cell in cells:
-        cell_TP = cell.ix[tp:tp+6079]
-        cells_TP.append(cell_TP)
-    cells_TPs.append(cells_TP)
+    fig, axes = plt.subplots(nrows=5)
+    for ax, cell in zip(axes, cells):
+        cell_TP = cell.ix[tp:tp + 6079]
+        ax.plot(t_TP, cell_TP, linewidth = 0.25)
 
-
-# Plot all cells for TP1
-
-fig, axes = plt.subplots(nrows=5)
-for ax, cell_TP in zip(axes, cells_TPs[0]):
-    ax.plot(t_TPs[0], cell_TP, linewidth = 0.25)
-
-#Adjust spacing between subplots
-plt.ylabel('ΔF/F')
-plt.xlabel('# of frames')
-fig.savefig('./data/draw_traces/TP1.png', format = 'png')
+    #Adjust spacing between subplots
+    plt.ylabel('ΔF/F')
+    plt.xlabel('# of frames')
+    fig.savefig('./data/draw_traces/TP{}.png'.format(idx+1), format = 'png')
 
 
