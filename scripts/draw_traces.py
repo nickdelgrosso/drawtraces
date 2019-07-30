@@ -73,7 +73,6 @@ axTP1_cell5.plot(t_TP1,cell5_TP1, linewidth = 0.25)
 plt.ylabel('ΔF/F')
 plt.xlabel('# of frames')
 
-plt.show()
 fig_TP1.savefig('./data/draw_traces/TP1.png', format = 'png')
 
 
