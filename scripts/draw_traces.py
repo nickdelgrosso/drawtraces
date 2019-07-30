@@ -4,7 +4,7 @@ import pandas as pd
 
 
 # load csv as data frame
-df = pd.read_csv('./top5_correlated.csv')
+df = pd.read_csv('./data/draw_traces/top5_correlated.csv')
 
 # extract time (t) and fluorescence data for each ROI (cell 1-5)
 t = df.ix[:,'y0000']
@@ -74,6 +74,6 @@ plt.ylabel('ΔF/F')
 plt.xlabel('# of frames')
 
 plt.show()
-fig_TP1.savefig('TP1.png', format = 'png')
+fig_TP1.savefig('./data/draw_traces/TP1.png', format = 'png')
 
 
