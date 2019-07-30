@@ -22,36 +22,14 @@ for tp in [0, 6080, 12160, 18240]:
     t_TPs.append(t_TP)
 
 # extract data for each time point from ROI 0000 (cells[0])
+cells_TPs = []
 cell1_TPs = []
 for tp in [0, 6080, 12160, 18240]:
-    cell1_TP = cells[0].ix[tp:tp+6079]
-    cell1_TPs.append(cell1_TP)
-
-
-# extract data for each time point from ROI 0001 (cells[1])
-cell2_TPs = []
-for tp in [0, 6080, 12160, 18240]:
-    cell2_TP = cells[1].ix[tp:tp+6079]
-    cell2_TPs.append(cell2_TP)
-
-
-# extract data for each time point from ROI 0002 (cells[2])
-cell3_TP1 = cells[2].ix[0:6079]
-cell3_TP2 = cells[2].ix[6080:12159]
-cell3_TP3 = cells[2].ix[12160:18239]
-cell3_TP4 = cells[2].ix[18240:24319]
-
-# extract data for each time point from ROI 0003 (cells[3])
-cell4_TP1 = cells[3].ix[0:6079]
-cell4_TP2 = cells[3].ix[6080:12159]
-cell4_TP3 = cells[3].ix[12160:18239]
-cell4_TP4 = cells[3].ix[18240:24319]
-
-# extract data for each time point from ROI 0004 (cells[4])
-cell5_TP1 = cells[4].ix[0:6079]
-cell5_TP2 = cells[4].ix[6080:12159]
-cell5_TP3 = cells[4].ix[12160:18239]
-cell5_TP4 = cells[4].ix[18240:24319]
+    cells_TP = []
+    for cell in cells:
+        cell_TP = cell.ix[tp:tp+6079]
+        cells_TP.append(cell_TP)
+    cells_TPs.append(cells_TP)
 
 
 # Plot all cells for TP1
@@ -64,11 +42,11 @@ axTP1_cell4 = fig_TP1.add_subplot(514)
 axTP1_cell5 = fig_TP1.add_subplot(515)
 
 
-axTP1_cell1.plot(t_TPs[0], cell1_TPs[0], linewidth = 0.25)
-axTP1_cell2.plot(t_TPs[0], cell2_TPs[0], linewidth = 0.25)
-axTP1_cell3.plot(t_TPs[0],cell3_TP1, linewidth = 0.25)
-axTP1_cell4.plot(t_TPs[0],cell4_TP1, linewidth = 0.25)
-axTP1_cell5.plot(t_TPs[0],cell5_TP1, linewidth = 0.25)
+axTP1_cell1.plot(t_TPs[0], cells_TPs[0][0], linewidth = 0.25)
+axTP1_cell2.plot(t_TPs[0], cells_TPs[0][1], linewidth = 0.25)
+axTP1_cell3.plot(t_TPs[0], cells_TPs[0][2], linewidth = 0.25)
+axTP1_cell4.plot(t_TPs[0], cells_TPs[0][3], linewidth = 0.25)
+axTP1_cell5.plot(t_TPs[0], cells_TPs[0][4], linewidth = 0.25)
 
 
 #Adjust spacing between subplots
